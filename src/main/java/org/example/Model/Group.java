@@ -17,10 +17,10 @@ public class Group {
     public void GroupInfo(){
         System.out.println("ID: " + getGroupID());
         System.out.println("Учитель:");
-        this.teacher.TeacherInfo();
+        this.teacher.UserInfo();
         System.out.println("Студенты:");
         for (Student student: this.studentList){
-            student.StudentInfo();
+            student.UserInfo();
         }
     }
 }

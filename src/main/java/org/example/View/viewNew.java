@@ -6,7 +6,7 @@ import org.example.Model.Teacher;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-public class viewNew {
+public class viewNew implements WorkView{
     public int mainMenu() {
         Scanner sc = new Scanner(System.in);
         int answer = 0;
@@ -30,8 +30,8 @@ public class viewNew {
         return answer;
     }
 
-
-    public void GroupList(List<Group> groupList) {
+    @Override
+    public void GroupList(List<Group> groupList){
         System.out.println("Список групп ");
         for (Group group : groupList) {
             group.GroupInfo();
@@ -39,12 +39,13 @@ public class viewNew {
         System.out.println();
     }
 
-    public Teacher menuChooseTeacher(List<Teacher> teacherList) {
+    @Override
+    public Teacher menuChooseTeacher(List<Teacher> teacherList){
         Scanner sc = new Scanner(System.in);
         int answer = 0;
         System.out.println("Укажите учителя для группы");
         for (Teacher teacher : teacherList) {
-            teacher.TeacherInfo();
+            teacher.UserInfo();
         }
         int flag = 0;
         while (flag == 0) {
@@ -59,16 +60,15 @@ public class viewNew {
             }
         }
         return  teacherList.get(answer-1);
-
     }
-
-    public List<Student> menuChooseStudents(List<Student> studentList) {
+    @Override
+    public List<Student> menuChooseStudents(List<Student> studentList){
         List<Student> result = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         int answer = 0;
         System.out.println("Укажите студентов для группы ");
         for (Student student : studentList) {
-            student.StudentInfo();}
+            student.UserInfo();}
         int flag = 0;
         while (flag == 0) {
             System.out.print("Укажите ID студента, для выхода введите 0 -> ");

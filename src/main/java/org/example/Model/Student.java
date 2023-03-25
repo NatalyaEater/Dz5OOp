@@ -7,9 +7,16 @@ import java.util.Scanner;
 @Data
 @AllArgsConstructor
 
-public class Student extends User{
+public class Student extends User implements UserData{
     String faculty;
+
     public Student() {
+
+    }
+
+
+    @Override
+    public void User(){
         Scanner sc = new Scanner(System.in);
         System.out.print("Введите  имя студента ");
         this.name = sc.next();
@@ -20,13 +27,15 @@ public class Student extends User{
 
         System.out.print("Введите Id студента начиная с 1 ,соблюдайте очередность");
         this.userID = sc.nextInt();
-    }
 
-    public void StudentInfo(){
+    }
+    @Override
+    public void UserInfo(){
         System.out.println("ID: " + getUserID());
         System.out.println("Имя: " + getName());
         System.out.println("Факультет: " + getFaculty());
         System.out.println("Группа: " + getGroupID());
     }
+
 }
 
